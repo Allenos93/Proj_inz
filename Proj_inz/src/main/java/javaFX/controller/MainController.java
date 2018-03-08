@@ -58,8 +58,8 @@ public class MainController {
 			e.printStackTrace();
 		}
 		if(conn != null){
-			FXMLLoader loader = new FXMLLoader(this.getClass().getResource("/fxml/ProgramScene.fxml"));
 			Pane pane = null;
+			FXMLLoader loader = new FXMLLoader(this.getClass().getResource("/fxml/ProgramScene.fxml"));
 			try {
 				pane = loader.load();
 			} catch (IOException e) {
@@ -68,6 +68,7 @@ public class MainController {
 			}
 			ProgramSceneController programController = loader.getController();
 			programController.setMainController(this);
+			if(pane == null) System.out.println("No kurwa null");
 			SetScreen(pane);
 		}
 	}
@@ -103,6 +104,12 @@ public class MainController {
 	
 	public ResultSet DBQuerry(String querry) {
 		Statement statement = null;
+		try {
+			statement = conn.createStatement();
+		} catch (SQLException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
 		ResultSet result = null;
 		try {
 			result = statement.executeQuery(querry);
@@ -110,6 +117,7 @@ public class MainController {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
 		return result;
 	}
 	
