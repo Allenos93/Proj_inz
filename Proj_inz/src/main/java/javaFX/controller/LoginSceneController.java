@@ -13,10 +13,11 @@ public class LoginSceneController {
 	@FXML
 	private Button buttonExit;
 	@FXML
-	private TextField login;
+	private TextField fieldLogin;
 	@FXML
-	private PasswordField password;
+	private PasswordField fieldPassword;
 	
+	private MainController mainController;
 	
 	
 	public LoginSceneController() {
@@ -31,11 +32,19 @@ public class LoginSceneController {
 	@FXML
 	public void onActionLogin() {
 		
+		mainController.DBConnect(fieldLogin.getText(),fieldPassword.getText());
 	}
 	
 	@FXML
 	public void onActionExit() {
 		Platform.exit();
 	}
+
+	
+	public void setMainController(MainController mainController) {
+		this.mainController = mainController;
+	}
+	
+	
 	
 }
