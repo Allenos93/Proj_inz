@@ -123,7 +123,7 @@ public class WarehouseSceneController {
 	
 	@FXML
 	public void onActionDodaj() {
-		
+		mainController.SceneDodajSprzet();
 	}
 	@FXML
 	public void onActionUsun() {

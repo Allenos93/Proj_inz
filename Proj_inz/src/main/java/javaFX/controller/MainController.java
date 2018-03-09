@@ -170,5 +170,18 @@ public class MainController {
 		dodajPracownikaController.setMainController(this);
 		SetScreen(pane);
 	}
-	
+	public void SceneDodajSprzet() {
+		Pane pane = null;
+		FXMLLoader loader = new FXMLLoader(this.getClass().getResource("/fxml/DodajSprzet.fxml"));
+		try {
+			pane = loader.load();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		DodajSprzetController dodajSprzetController = loader.getController();
+		dodajSprzetController.setMainController(this);
+		SetScreen(pane);
+	}
 }
