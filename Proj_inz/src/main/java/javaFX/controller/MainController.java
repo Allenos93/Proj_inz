@@ -58,18 +58,7 @@ public class MainController {
 			e.printStackTrace();
 		}
 		if(conn != null){
-			Pane pane = null;
-			FXMLLoader loader = new FXMLLoader(this.getClass().getResource("/fxml/ProgramScene.fxml"));
-			try {
-				pane = loader.load();
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-			ProgramSceneController programController = loader.getController();
-			programController.setMainController(this);
-			if(pane == null) System.out.println("No kurwa null");
-			SetScreen(pane);
+			SceneProgram();
 		}
 	}
 	
@@ -119,6 +108,67 @@ public class MainController {
 		}
 		
 		return result;
+	}
+	
+	public void DBUpdate(String query) {
+		Statement statement = null;
+		try {
+			statement = conn.createStatement();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		try {
+			statement.executeUpdate(query);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	}
+	
+	public void SceneWarehouse() {
+		Pane pane = null;
+		FXMLLoader loader = new FXMLLoader(this.getClass().getResource("/fxml/WarehouseScene.fxml"));
+		try {
+			pane = loader.load();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		WarehouseSceneController warehouseController = loader.getController();
+		warehouseController.setMainController(this);
+		SetScreen(pane);
+	}
+	
+	public void SceneProgram() {
+		Pane pane = null;
+		FXMLLoader loader = new FXMLLoader(this.getClass().getResource("/fxml/ProgramScene.fxml"));
+		try {
+			pane = loader.load();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		ProgramSceneController programController = loader.getController();
+		programController.setMainController(this);
+		SetScreen(pane);
+	}
+	public void SceneDodajPracownika() {
+		Pane pane = null;
+		FXMLLoader loader = new FXMLLoader(this.getClass().getResource("/fxml/DodajPracownika.fxml"));
+		try {
+			pane = loader.load();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		DodajPracownikaController dodajPracownikaController = loader.getController();
+		dodajPracownikaController.setMainController(this);
+		SetScreen(pane);
 	}
 	
 }

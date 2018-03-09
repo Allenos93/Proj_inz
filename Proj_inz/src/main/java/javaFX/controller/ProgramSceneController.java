@@ -3,7 +3,7 @@ package javaFX.controller;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import javaFX.controller.ProgramSceneController.Person;
+
 import javafx.application.Platform;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleLongProperty;
@@ -32,8 +32,8 @@ public class ProgramSceneController {
 	    private Person(int id, long pesel, String imie,String nazwisko) {
 	        this.setID(new SimpleIntegerProperty(id));
 	        this.setPesel(new SimpleLongProperty(pesel));
-	        this.Imie = new SimpleStringProperty(imie);
-	        this.Nazwisko = new SimpleStringProperty(nazwisko);
+	        this.setImie(new SimpleStringProperty(imie));
+	        this.setNazwisko(new SimpleStringProperty(nazwisko));
 	        
 	    }
 
@@ -77,7 +77,14 @@ public class ProgramSceneController {
 	private MenuItem menuLogout;
 	
 	@FXML
-	private Button buttonWypelnij;
+	private Button buttonPracownicy;
+	@FXML
+	private Button buttonMagazyn;
+	@FXML
+	private Button buttonDodaj;
+	@FXML
+	private Button buttonUsun;
+	
 	
 	@FXML
 	private TableView<Person> programTableView;
@@ -100,14 +107,30 @@ public class ProgramSceneController {
 		programTableColumnImie.setCellValueFactory(new PropertyValueFactory<Person, String>("Imie"));
 		programTableColumnNazwisko.setCellValueFactory(new PropertyValueFactory<Person, String>("Nazwisko"));
 		data = FXCollections.observableArrayList();
-		
 	}
 	
 	@FXML
-	public void onActionWypelnij() {
+	public void onActionPracownicy() {
 		DBFillTable();
 		programTableView.refresh();
 	}
+	
+	public void onActionMagazyn() {
+		mainController.SceneWarehouse();
+	}
+	
+	@FXML
+	public void onActionDodaj() {
+		mainController.SceneDodajPracownika();
+	}
+	@FXML
+	public void onActionUsun() {
+		Person person = programTableView.getSelectionModel().getSelectedItem();
+		mainController.DBUpdate("Delete From Pracownicy WHERE ID=" + person.getID());
+		DBFillTable();
+		programTableView.refresh();
+	}
+	
 	
 	@FXML
 	public void onActionMenuClose() {
@@ -139,7 +162,6 @@ public class ProgramSceneController {
 				);
 				
 				data.add(osoba);
-				System.out.println("DB obieg");
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
