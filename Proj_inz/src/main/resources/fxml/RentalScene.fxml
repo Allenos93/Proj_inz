@@ -8,7 +8,7 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.Pane?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javaFX.controller.ProgramSceneController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javaFX.controller.RentalSceneController">
    <children>
       <MenuBar prefHeight="25.0" prefWidth="600.0">
         <menus>
@@ -27,12 +27,14 @@
       </MenuBar>
       <Button fx:id="buttonPracownicy" layoutX="90.0" layoutY="40.0" mnemonicParsing="false" onAction="#onActionPracownicy" prefHeight="50.0" prefWidth="100.0" text="Pracownicy" />
       <Button fx:id="buttonMagazyn" layoutX="250.0" layoutY="40.0" mnemonicParsing="false" onAction="#onActionMagazyn" prefHeight="50.0" prefWidth="100.0" text="Magazyn" />
-      <TableView fx:id="programTableView" layoutY="150.0" prefHeight="250.0" prefWidth="600.0">
+      <TableView fx:id="rentalTableView" layoutY="150.0" prefHeight="250.0" prefWidth="600.0">
         <columns>
-          <TableColumn fx:id="programTableColumnID" prefWidth="40.0" text="ID" />
-          <TableColumn fx:id="programTableColumnPesel" prefWidth="120.0" text="Pesel" />
-            <TableColumn fx:id="programTableColumnImie" prefWidth="100.0" text="Imie" />
-            <TableColumn fx:id="programTableColumnNazwisko" prefWidth="130.0" text="Nazwisko" />
+          <TableColumn fx:id="rentalTableColumnID" prefWidth="40.0" text="ID" />
+          <TableColumn fx:id="rentalTableColumnImie" prefWidth="90.0" text="Imie" />
+            <TableColumn fx:id="rentalTableColumnNazwisko" prefWidth="110.0" text="Nazwisko" />
+            <TableColumn fx:id="rentalTableColumnNazwa" prefWidth="160.0" text="Nazwa" />
+            <TableColumn fx:id="rentalTableColumnTyp" prefWidth="90.0" text="Typ" />
+            <TableColumn fx:id="rentalTableColumnData" prefWidth="110.0" text="Data" visible="false" />
         </columns>
       </TableView>
       <Button fx:id="buttonDodaj" layoutX="35.0" layoutY="116.0" mnemonicParsing="false" onAction="#onActionDodaj" text="Dodaj" />

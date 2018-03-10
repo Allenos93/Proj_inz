@@ -82,6 +82,8 @@ public class WarehouseSceneController {
 	@FXML
 	private Button buttonMagazyn;
 	@FXML
+	private Button buttonWypozyczenia;
+	@FXML
 	private Button buttonDodaj;
 	@FXML
 	private Button buttonUsun;
@@ -119,6 +121,11 @@ public class WarehouseSceneController {
 	@FXML
 	public void onActionPracownicy() {
 		mainController.SceneProgram();
+	}
+	
+	@FXML
+	public void onActionWypozyczenia() {
+		mainController.SceneWypozyczenia();
 	}
 	
 	@FXML

@@ -81,6 +81,8 @@ public class ProgramSceneController {
 	@FXML
 	private Button buttonMagazyn;
 	@FXML
+	private Button buttonWypozyczenia;
+	@FXML
 	private Button buttonDodaj;
 	@FXML
 	private Button buttonUsun;
@@ -114,9 +116,14 @@ public class ProgramSceneController {
 		DBFillTable();
 		programTableView.refresh();
 	}
-	
+	@FXML
 	public void onActionMagazyn() {
 		mainController.SceneWarehouse();
+	}
+	
+	@FXML
+	public void onActionWypozyczenia() {
+		mainController.SceneWypozyczenia();
 	}
 	
 	@FXML

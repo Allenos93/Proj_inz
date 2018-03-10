@@ -184,4 +184,33 @@ public class MainController {
 		dodajSprzetController.setMainController(this);
 		SetScreen(pane);
 	}
+	public void SceneWypozyczenia() {
+		Pane pane = null;
+		FXMLLoader loader = new FXMLLoader(this.getClass().getResource("/fxml/RentalScene.fxml"));
+		try {
+			pane = loader.load();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		RentalSceneController rentalController = loader.getController();
+		rentalController.setMainController(this);
+		SetScreen(pane);
+	}
+	public void SceneWypozycz() {
+		Pane pane = null;
+		FXMLLoader loader = new FXMLLoader(this.getClass().getResource("/fxml/Wypozycz.fxml"));
+		try {
+			pane = loader.load();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		WypozyczController wypozyczController = loader.getController();
+		wypozyczController.setMainController(this);
+		SetScreen(pane);
+	}
+	
 }

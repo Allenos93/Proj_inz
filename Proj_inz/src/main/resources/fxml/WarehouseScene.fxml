@@ -37,6 +37,6 @@
       </TableView>
       <Button fx:id="buttonDodaj" layoutX="35.0" layoutY="116.0" mnemonicParsing="false" onAction="#onActionDodaj" text="Dodaj" />
       <Button fx:id="buttonUsun" layoutX="122.0" layoutY="116.0" mnemonicParsing="false" onAction="#onActionUsun" text="Usuń" />
-      <Button layoutX="410.0" layoutY="40.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="100.0" text="Wypożyczenia" />
+      <Button fx:id="buttonWypozyczenia" layoutX="410.0" layoutY="40.0" mnemonicParsing="false" onAction="#onActionWypozyczenia" prefHeight="50.0" prefWidth="100.0" text="Wypożyczenia" />
    </children>
 </Pane>
